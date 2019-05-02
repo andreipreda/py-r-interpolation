@@ -1,0 +1,30 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    PY R Interpolation alpine linux - openblas - docker - azure - docker compose
+  </h1>
+  <button (click)="callPy()">Python</button>
+  <button (click)="callR()">R</button>
+
+  <br />
+  <br />
+
+  <div>
+    <br />
+    Server result:
+    {{ text }}
+  </div>
+
+
+  <br />
+
+  <button *ngIf="!mongoItem" (click)="addDoc()">Add mongo item</button>
+
+  <br />
+
+  <div *ngIf="mongoItem">
+    {{ mongoItem.title }}
+    Added {{ mongoItem.date_modified.$date | date }}
+    <button (click)="removeDoc(mongoItem._id.$oid)">Remove Item</button>
+  </div>
+</div>

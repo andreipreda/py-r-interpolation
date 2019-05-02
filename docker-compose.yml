@@ -1,0 +1,31 @@
+version: '3.3'
+services:
+
+  client:
+    build: client
+    environment:
+      - NODE_ENV=production
+      - APP_TO_SERVE=/client/srt_dist
+    ports:
+      - 8080:8080
+
+  flask:
+    build: flask
+    depends_on:
+      - mongo
+    environment:
+      - MONGO_HOST=mongodb://mongo:27017/srt
+    ports:
+      - 7000:7000
+
+  mongo:
+    image: mongo:latest
+    command:
+      - mongod
+    volumes:
+      - mongodata:/data/db
+    ports:
+      - 27017:27017
+
+volumes:
+    mongodata:

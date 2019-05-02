@@ -1,0 +1,22 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = false
+
+[dev-packages]
+
+[packages]
+flask = "*"
+pandas = "==0.23.4"
+numpy = "==1.14.3"
+jupyter = "*"
+rpy2 = "*"
+tzlocal = "*"
+waitress = "*"
+paste = "*"
+flask-cors = "*"
+mongoengine = "==0.16.3"
+namesgenerator = "*"
+
+[requires]
+python_version = "3.7"
