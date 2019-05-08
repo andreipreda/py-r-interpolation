@@ -21,18 +21,19 @@ def create_app(config=None):
     except MongoEngineConnectionError as exc:
         raise exc
 
-    @app.route('/')
+    @app.route('/api/python')
     def test():
         """Random pandas df"""
         df = random_df()
         return jsonify({'py': df.to_json()}), 200
 
-    @app.route('/r')
+    @app.route('/api/r')
     def from_r():
         """Dataframe from an R tibble using rpy2"""
         df = call_r(Path(current_app.config['R_LOCATION'], 'rapp.r'))
         return jsonify({'r': df.to_json()}), 200
 
+    """MONGO IO API SIMULATION"""
     @app.route('/api/add', methods=['POST'])
     def add_doc():
         try:
@@ -44,7 +45,6 @@ def create_app(config=None):
         except Exception as ex:
             raise ex
 
-    """MONGO IO API SIMULATION"""
     @app.route('/api/remove', methods=['DELETE'])
     def remove_doc():
         id = request.args.get('id')

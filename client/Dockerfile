@@ -8,7 +8,7 @@ WORKDIR /client/angular
 
 RUN npm i
 
-RUN ng build --prod --output-path=/client/srt_dist
+RUN ng build --prod --output-path=/client/express/static
 
 WORKDIR /client/express
 
