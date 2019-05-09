@@ -20,6 +20,9 @@ RUN apk add --no-cache R R-dev R-mathlib
 # for rpy2 foreign language prototol
 RUN apk add --no-cache libffi libffi-dev
 
+# for scipy numba add llvm
+RUN apk add --no-cache llvm llvm-dev
+
 # R home for rpy2
 ENV R_HOME=/usr/lib/R
 # R libs path
